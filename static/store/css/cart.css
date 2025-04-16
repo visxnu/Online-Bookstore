@@ -1,0 +1,40 @@
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: white;
+    margin: 10px 20px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h3 {
+    text-align: center;
+    color: #e74c3c;
+    margin: 20px 0;
+}
+
+a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: #2ecc71;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    width: 100px;
+    margin: 0 auto;
+}
+
+a:hover {
+    background-color: #27ae60;
+}

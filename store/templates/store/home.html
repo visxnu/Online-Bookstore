@@ -1,0 +1,21 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'store/css/home.css' %}">
+    <h1>Welcome to Online Book Store</h1>
+    <form action="{% url 'search_books' %}">
+        <input type="text" name="q" placeholder="Search by title, author, or subject">
+        <button type="submit">Search</button>
+    </form>
+    <h2>Available Books</h2>
+    <ul>
+    {% for book in books %}
+        <li>{{ book.title }} by {{ book.author }} - ${{ book.price }}
+            {% if user.is_authenticated and book.stock > 0 %}
+                <a href="{% url 'add_to_cart' book.id %}">Add to Cart</a>
+                <a href="{% url 'rate_book' book.id %}">Rate</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

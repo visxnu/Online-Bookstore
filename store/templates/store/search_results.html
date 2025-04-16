@@ -1,0 +1,16 @@
+{% extends 'store/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'store/css/search_results.css' %}">
+    <h1>Search Results for "{{ query }}"</h1>
+    <ul>
+    {% for book in books %}
+        <li>{{ book.title }} by {{ book.author }} - ${{ book.price }}
+            {% if user.is_authenticated and book.stock > 0 %}
+                <a href="{% url 'add_to_cart' book.id %}">Add to Cart</a>
+                <a href="{% url 'rate_book' book.id %}">Rate</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

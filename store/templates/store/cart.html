@@ -1,0 +1,13 @@
+{% extends 'store/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'store/css/cart.css' %}">
+    <h1>Your Cart</h1>
+    <ul>
+    {% for item in cart_items %}
+        <li>{{ item.book.title }} - ${{ item.book.price }} x {{ item.quantity }}</li>
+    {% endfor %}
+    </ul>
+    <h3>Total: ${{ total }}</h3>
+    <a href="{% url 'checkout' %}">Checkout</a>
+{% endblock %}

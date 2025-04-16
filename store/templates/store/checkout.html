@@ -1,0 +1,11 @@
+{% extends 'store/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'store/css/checkout.css' %}">
+    <h1>Checkout</h1>
+    <p>Thank you for your purchase!</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Purchase</button>
+    </form>
+{% endblock %}
